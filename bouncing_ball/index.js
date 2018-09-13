@@ -30,6 +30,7 @@ function setup() {
     shadow.alpha = 0.1;
     shadow.x = 400;
     shadow.y = 1172;
+    shadow._filters = [new PIXI.filters.BlurFilter(10)];
     app.stage.addChild(shadow);
 
     //intialization of the ball
@@ -85,8 +86,8 @@ function setup() {
     state = move;
 
     app.ticker.add(delta => loop(delta));
-    app.ticker.add(delta => shadowGrow(delta));
-    app.ticker.add(delta => velocityChange(delta));
+    app.ticker.add(delta => shadowGrow());
+    app.ticker.add(delta => velocityChange());
 
 }
 
@@ -139,13 +140,13 @@ function contain(sprite, container) {
 }
 
 //function to handle the growth of the shadow and its fading effect
-function shadowGrow(delta) {
-    shadow.alpha = 1 - (distanceBetweenSprites() / 5000);
+function shadowGrow() {
+    shadow.alpha = 1 - (distanceBetweenSprites() / 1300);
     shadow.scale.set(1.0 * distanceBetweenSprites() / 800, 1.0);
 }
 
 //function to handle the change of the velocity
-function velocityChange(delta) {
+function velocityChange() {
     return (speed * (distanceBetweenSprites() / 1000)) * direction;
 }
 
