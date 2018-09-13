@@ -12,6 +12,8 @@
   "license": "ISC",
   "dependencies": {
     "browser-sync": "^2.24.7",
+    "pexi": "^4.5.3",
+    "pixi-game-utilities": "^4.5.3",
     "pixi.js": "^4.8.2"
   }
 }
